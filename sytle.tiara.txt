@@ -1,0 +1,71 @@
+* {margin:0}
+
+body {
+		font-family:arial,segoe ui;
+}
+
+.wrap{
+	background: blue;
+	width: 900px;
+	margin: 10px auto;
+}
+.wrap .header{
+	background: green;
+	/height: 50px;/
+	padding: 2px 10px;
+}
+/akhir header/
+
+/bagian menu/
+.wrap .menu{
+	background: yellow;
+}
+ 
+.wrap .menu ul{
+	padding: 0;
+	margin: 0;
+	background: yellow;
+	overflow: hidden;
+}
+ 
+.wrap .menu ul li{
+	float: left;
+	list-style-type: none;
+	padding: 10px;
+} 
+             
+ 
+  
+.wrap .main {
+            width:100%;
+            background:#6F9;
+}
+ 
+   
+  
+.wrap .content {
+            float:left;
+            width:66%;
+            background:#FF9;
+            padding:2%; 
+            min-height:400px;
+}
+  
+.wrap .sidebar {
+            float:right;
+            width:26%;
+            background:#6F9;
+            padding:2%;
+  
+}          
+  
+.clear {clear:both}
+  
+.footer {
+            width:auto;
+            height:auto;
+            padding:5px 10px;
+            background:#333;
+            color:#fff;
+  
+}

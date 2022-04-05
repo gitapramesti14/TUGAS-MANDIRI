@@ -1,0 +1,61 @@
+<html>
+<head>
+<meta charset="utf-8">
+<title>Layout Website Sederhana</title>
+<link href="style.css" type="text/css"
+rel="stylesheet">
+</head>
+<body>
+<div class="wrap">
+     <div class="header">
+             <h1>HEADER</h1>
+     </div>
+     <div class="menu">
+         <ul>
+         <li><a href="#">Home</a></li>
+         <li><a href="#">HTML</a></li>
+         <li><a href="#">CSS</a></li>
+         <li><a href="#">PHP</a></li>
+         <li><a href="#">Javascript</a></li>
+         <li><a href="#">GITA</a></li>
+         </ul>
+
+     </div>
+     <div class="main">
+        <div class="content">
+             <h3>Radio Button</h3>
+             <input type="Radio" nama="sex" value="pria">Pria
+             <input type="Radio" nama="sex" value="wanita">Wanita
+             <h3>Check Box</h3>
+             <input type="checkbox" nama="Day" value="senin">Senin<br>
+<h3> Dropdown list</h3>
+            <select nama="My Friends">
+                <option value='dera'>DERA</option>
+                <option value='ika'>IKA</option>
+                <option value='tiara'>TIARA</option>
+            </select> <br>
+            <fieldset>
+               <label for="username">Username</label>
+               <innput type="text" name="gita pramesti" id="gita pramesti">
+
+            <fieldset> 
+         </div>
+        
+         <div class="sidebar">
+             <h2>Right Sidebar</h2>
+         </div>
+
+         <div class="clear"></div>
+
+     </div>
+
+     <div class="footer">
+         <center><p>Copyright &copy; Gita Pramesti & 21090021 - All Right Reserved</p></center>
+     </div>
+
+</div>
+</body>
+</html>
+
+
+
