@@ -1,0 +1,82 @@
+ algoritma greedy menurut saya  merupakan metode yang paling populer untuk memecahkan persoalan optimasi.
+    Greedy sendiri diambil dari bahasa inggris yang artinya rakus, tamak atau serakah .
+    Prinsip algoritma greedy adalah: “take what you can get now!”. algoritma grredy sendiri banyak dijumpai dalam kehidupan
+    jenis algoritma yang menggunakan pendekatan penyelesaian masalah dengan mencari
+    nilai maksimum sementara pada setiap langkahnya. Nilai maksimum sementara ini dikenal dengan istilah local maximum. Pada kebanyakan kasus, algoritma greedy tidak akan menghasilkan solusi paling optimal, begitupun algoritma greedy biasanya memberikan solusi yang mendekati nilai optimum dalam waktu yang cukup cepat.
+
+    Contoh masalah sehari-hari yang menggunakan prinsip greedy:
+
+            – Memilih beberapa jenis investasi (penanaman modal)
+– Mencari jalur tersingkat dari Bandung ke Surabaya
+– Memilih jurusan di Perguruan Tinggi
+– Bermain kartu remi
+    Algoritma greedy membentuk solusi langkah per langkah (step by step). Terdapat banyak pilihan yang perlu dieksplorasi pada setiap langkah solusi. Oleh karena itu, pada setiap langkah harus dibuat keputusan yang terbaik dalam menentukan pilihan.
+
+    penerapan dalam kehidpan sehari hari yaitu:
+    a. mencari alamat atau lokasi menggunakan peta
+    b. Implementasi Algoritma Greedy
+    Untuk memperdalam pengertian algoritma greedy, kita akan mengimplementasikan algoritma yang telah dijelaskan pada bagian sebelumnya ke dalam kode program. Seperti biasa, contoh kode program akan diberikan dalam bahasa pemrograman python. Sebagai langkah awal, tentunya kita terlebih dahulu harus merepresentasikan graph. Pada implementasi yang kita lakukan, graph direpresentasikan dengan menggunakan dictionary di dalam dictionary, seperti berikut:
+
+    DAG = {'A': {'C': 4, 'G': 9},
+        'G': {'E': 6},
+        'C': {'D': 6, 'H': 12},
+        'D': {'E': 7},
+        'H': {'F': 15},
+        'E': {'F': 8},
+        'F': {'B': 5}}
+
+# Hasil Representasi:
+    {'A': {'C': 4, 'G': 9},
+        'C': {'D': 6, 'H': 12},
+        'D': {'E': 7},
+        'E': {'F': 8},
+        'F': {'B': 5},
+        'G': {'E': 6},
+        'H': {'F': 15}}
+    Selanjutnya kita akan membuat fungsi yang mencari jarak terpendek dari graph yang dibangun, dengan menggunakan algoritma greedy. Definisi dari fungsi tersebut sangat sederhana, hanya sebuah fungsi yang mengambil graph, titik awal, dan titik akhir sebagai argumennya:
+
+    def shortest_path(graph, source, dest):
+    Jarak terpendek yang didapatkan akan dibangun langkah demi langkah, seperti pada algoritma greedy yang mengambil nilai local maximum pada setiap langkahnya. Untuk hal ini, tentunya kita akan perlu menyimpan jarak terpendek ke dalam sebuah variabel, dengan source sebagai isi awal variabel tersebut. Jarak terpendek kita simpan ke dalam sebuah list, untuk menyederhanakan proses penambahan nilai.
+
+    result = []
+            result.append(source)
+    Penelusuran graph sendiri akan kita lakukan melalui result, karena variabel ini merepresentasikan seluruh node yang telah kita kunjungi dari keseluruhan graph. Variabel result pada dasarnya merupakan hasil implementasi dari langkah 3 algoritma (“Tandai graph sekarang sebagai graph yang telah dikunjungi”). Titik awal dari rute tentunya secara otomatis ditandai sebagai node yang telah dikunjungi.
+
+            Selanjutnya, kita akan menelusuri graph sampai titik tujuan ditemukan, dengan menggunakan iterasi:
+
+            while dest not in result:
+    current_node = result[-1]
+    dengan mengambil node yang sekarang sedang dicari local maximum-nya dari isi terakhir result. Pencarian local maximum sendiri lebih memerlukan pengetahuan python daripada algoritma:
+
+            # Cari local maximum
+            local_max = min(graph[current_node].values())
+
+# Ambil node dari local maximum,
+            # dan tambahkan ke result
+# agar iterasi selanjutnya dimulai
+# dari node sekarang.
+for node, weight in graph[current_node].items():
+            if weight == local_max:
+            result.append(node)
+    Setelah seluruh graph ditelurusi sampai mendapatkan hasil, kita dapat mengembalikan result ke pemanggil fungsi:
+
+            return result
+    Keseluruhan fungsi yang dibangun adalah sebagai berikut:
+
+    def shortest_path(graph, source, dest):
+    result = []
+            result.append(source)
+
+            while dest not in result:
+    current_node = result[-1]
+
+    local_max = min(graph[current_node].values())
+            for node, weight in graph[current_node].items():
+            if weight == local_max:
+            result.append(node)
+
+            return result
+    Perlu diingat bahwa fungsi ini masih banyak memiliki kekurangan, misalnya tidak adanya penanganan kasus jika titik tujuan tidak ditemukan, atau jika terdapat node yang memiliki nilai negatif (bergerak balik). Penanganan hal-hal tersebut tidak dibuat karena fungsi hanya bertujuan untuk mengilustrasikan cara kerja algoritma greedy, bukan untuk digunakan pada aplikasi nyata.
+
+
+}
